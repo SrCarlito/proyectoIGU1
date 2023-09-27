@@ -1,8 +1,7 @@
 from PIL import Image,ImageDraw
 from numpy import array
 
-
-def Image2Pix(img):
+def Image2PixL(img):
     i = img.convert('L')
     w,h = i.size
     data =i.getdata()           #Devuelve una lista de vectores que representan los valores de cada píxel
@@ -11,9 +10,10 @@ def Image2Pix(img):
     return img
 
 
+
 # Función de Momento
 def Momento(imgRoute,p,q):
-    imageArray = Image2Pix(Image.open(imgRoute))
+    imageArray = Image2PixL(Image.open(imgRoute))
 
     momento = 0
     for u in range(len(imageArray)):
@@ -62,7 +62,7 @@ def PintaCentroide(imgRoute):
 # Momento Central
 def MomentoCentral(imgRoute,p,q):
 
-    imageArray = Image2Pix(Image.open(imgRoute))
+    imageArray = Image2PixL(Image.open(imgRoute))
     x_,y_ = Centroide(imgRoute)
 
     momento = 0
@@ -98,5 +98,5 @@ def MomentoDeHu_3(imgRoute):
              +
             (3*MomentoCentralNormalizado(imgRoute,2,1) - 
                MomentoCentralNormalizado(imgRoute,0,3))**2)
-
+ 
 PintaCentroide('a.png')
