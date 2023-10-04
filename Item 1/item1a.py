@@ -1,5 +1,6 @@
 from PIL import Image, ImageDraw
 
+
 def area_centroide(imagen):
     # Carga imagen con PIL
     img = Image.open(imagen)
@@ -30,7 +31,7 @@ def area_centroide(imagen):
 
     # Guarda imagen con la cruz
     img.save("img_centroide.png")
-    #img.show()
+    # img.show()
 
     # Calcular centroide mediante momentos
     momento_m00 = area

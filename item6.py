@@ -1,18 +1,10 @@
-from main import Image2PixL
+from main import getHist
 from PIL import Image, ImageOps
 import matplotlib.pyplot as plt
 import numpy as np
 
 
-def getHist(image):
-    hist = np.zeros(256)
 
-    data = Image2PixL(image)
-    for x in range(len(data)):
-        for y in range(len(data[x])):
-            hist[int(data[x][y])] += 1
-
-    return hist
 
 
 img = Image.open('fig_00.jpg')
@@ -22,7 +14,6 @@ l = img.convert('L')
 
 
 fig, ax = plt.subplots(2,1,figsize=(8, 5))
-# Gap_subplots
 
 ax[0].imshow(img)
 ax[0].axis('off')
