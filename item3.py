@@ -1,12 +1,6 @@
 
-
-from main import getHist
-from PIL import Image, ImageOps
+from PIL import Image
 import matplotlib.pyplot as plt
-import numpy as np
-
-
-
 
 img = Image.open('flores.png')
 
@@ -24,13 +18,13 @@ ax3 = plt.subplot2grid((3, 2), (1, 0))
 ax4 = plt.subplot2grid((3, 2), (1, 1))
 ax5 = plt.subplot2grid((3, 2), (2, 0), colspan=2)
 
-ax1.plot(range(256), getHist(r), color='red')
+ax1.hist(r.getdata(), 255, color="r")
 ax1.set_title('Histograma canal rojo')
 
-ax2.plot(range(256), getHist(g), color='green')
+ax2.hist(g.getdata(), 255, color="g")
 ax2.set_title('Histograma canal verde')
 
-ax3.plot(range(256), getHist(b), color='blue')
+ax3.hist(b.getdata(), 255, color='b')
 ax3.set_title('Histograma canal azul')
 
 

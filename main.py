@@ -29,12 +29,12 @@ def Image2PixL(img, mode='RGB'):
     return img
 
 
-def getHist(image):
+def getHist(channel:Image.Image):
     hist = np.zeros(256)
-    data = Image2PixL(image, "L")
-    for x in range(len(data)):
-        for y in range(len(data[x])):
-            hist[int(data[x][y])] += 1
+    data = channel.getdata()
+    for x in data:
+        hist[x] += 1 
+
     return hist
 
 
